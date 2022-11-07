@@ -1,10 +1,13 @@
 const express = require("express");
+const path = require("path");
+// const cors = require("cors");
 const app = express();
 const server = require("http").Server(app);
 const io = require("socket.io")(server);
 
-const PORT = 3231;
-app.use(express.static(__dirname + "/build"));
+const PORT = process.env.PORT || 5000;
+app.use(express.static(path.join(__dirname, "..", "build")));
+// app.use(cors());
 io.on("connection", (socket) => {
   const id = socket.handshake.query.id;
   socket.join(id);

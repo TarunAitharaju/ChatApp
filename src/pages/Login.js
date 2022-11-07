@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import { Button, Container, Form, Stack } from "react-bootstrap";
 import { v4 as uuidv4 } from "uuid";
+import "../index.css";
 
 const Login = ({ onIdSubmit }) => {
   const idRef = useRef();
@@ -22,10 +23,16 @@ const Login = ({ onIdSubmit }) => {
           ></Form.Control>
         </Form.Group>
         <Stack direction="horizontal" gap={2}>
-          <Button variant="primary" onClick={handleSubmit}>
+          <Button variant="primary" className="primary" onClick={handleSubmit}>
             Login
           </Button>
-          <Button variant="secondary" onClick={() => {onIdSubmit(uuidv4())}}>
+          <Button
+            variant="secondary"
+            onClick={() => {
+              onIdSubmit(uuidv4());
+            }}
+            className="secondary"
+          >
             Create an Id
           </Button>
         </Stack>
