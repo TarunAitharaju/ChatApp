@@ -132,3 +132,7 @@ body,
   height: 25px;
   text-align: center;
 }
+
+.UnRead {
+  padding-right: 45px;
+}

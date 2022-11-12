@@ -106,11 +106,19 @@ export function ConversationsProvider({ id, children }) {
         if (madeChange) {
           return newConversations;
         } else {
+          let unReadCount = 0;
+          if (id !== sender) {
+            //  if (!c?.selected) {
+            // debugger;
+            unReadCount = 1;
+            // }
+          }
           return [
             ...conversation,
             {
               recepients,
               messages: [{ id: sender, text: message }],
+              unRead: unReadCount,
             },
           ];
         }
